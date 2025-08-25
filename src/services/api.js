@@ -13,12 +13,12 @@ API.interceptors.request.use((config) => {
     return config;
 });
 
-export const login = async (credentials) => {
+export const loginUser = async (credentials) => {
     const { data } = await API.post("auth/login", credentials);
     return data;
 }
 
-export const register = async (credentials) => {
+export const registerUser = async (credentials) => {
     const { data } = await API.post("auth/register", credentials);
     return data;
 }
