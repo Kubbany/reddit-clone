@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Comment from "./Comment";
 import "./CommentModal.css";
-import { createComment, getCommentsByPostId } from "../services/api";
+import { createComment, getCommentsByPostId } from "../../services/api";
 
 export default function CommentModal({ isOpen, onClose, post }) {
   const [comments, setComments] = useState([]);

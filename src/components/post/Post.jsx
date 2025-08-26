@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { FaArrowUp, FaArrowDown, FaComment } from "react-icons/fa";
 import "./Post.css";
-import { votePost } from "../services/api";
-import CommentModal from "./CommentModal";
+import { votePost } from "../../services/api";
+import CommentModal from "../comments/CommentModal";
 
 export default function Post({ post }) {
   const [votes, setVotes] = useState(post.voteCount ?? 0);
@@ -47,8 +47,6 @@ export default function Post({ post }) {
           <FaComment />
         </button>
       </div>
-
-      {/* Comment Modal */}
       <CommentModal
         isOpen={isCommentOpen}
         onClose={() => setIsCommentOpen(false)}

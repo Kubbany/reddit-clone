@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPosts } from "../../services/api";
-import Sidebar from "../../components/Sidebar";
-import Post from "../../components/Post";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Post from "../../components/post/Post";
 import "./Posts.css";
 
 export default function Posts() {
