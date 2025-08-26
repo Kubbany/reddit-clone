@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.create-post-page {
+  display: flex;
+  background: #0a0a0a;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.create-post-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  margin-left: 250px; 
+}
+
+.create-post-box {
+  width: 650px;
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 40px 30px;
+}
+
+.create-post-box h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+}
+
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-post-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #555;   
+  border-radius: 8px;      
+  outline: none;
+  background: transparent;
+  color: #f5f5f5;
+  transition: border-color 0.2s ease;
+}
+
+.create-post-input::placeholder {
+  color: #888;
+}
+
+.create-post-input:focus {
+  border-color: #3b82f6;
+}
+
+.create-post-button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.create-post-button:hover {
+  background: #2563eb;
+}
+
+.create-post-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

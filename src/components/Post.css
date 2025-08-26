@@ -1,0 +1,84 @@
+.post-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #f1f1f1;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.post-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #007bff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.post-author {
+  font-weight: bold;
+}
+
+.post-title {
+  font-size: 20px;
+  margin: 15px 0;
+  text-align: center;   /* centered title */
+}
+
+.post-description {
+  margin-bottom: 10px;
+  color: #ddd;
+  text-align: left;      /* left-aligned description */
+  line-height: 1.5;
+}
+
+.post-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 15px 0;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.post-actions button {
+  border: none;
+  background: #2a2a2a;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #f1f1f1;
+  transition: background 0.2s ease;
+}
+
+.post-actions button:hover {
+  background: #007bff;
+  color: white;
+}
+
+.post-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.post-actions span {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}

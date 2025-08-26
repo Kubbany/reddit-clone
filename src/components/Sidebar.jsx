@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { FaUserCircle } from "react-icons/fa";
 import "./Sidebar.css";
 
-export default function Sidebar({ onOpenCreatePost }) {
+export default function Sidebar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -11,6 +11,7 @@ export default function Sidebar({ onOpenCreatePost }) {
     logout();
     navigate("/login");
   };
+
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -21,7 +22,7 @@ export default function Sidebar({ onOpenCreatePost }) {
 
       <div className="sidebar-menu">
         <Link to="/posts" className="sidebar-btn">Posts</Link>
-        <button className="sidebar-btn" onClick={onOpenCreatePost}>Create Post</button>
+        <Link to="/create-post" className="sidebar-btn">Create Post</Link>
         <Link to="/profile" className="sidebar-btn">Your Profile</Link>
       </div>
 

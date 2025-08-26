@@ -4,6 +4,7 @@ import Login from './pages/authentication/login';
 import SignUp from './pages/authentication/signup';
 import Posts from './pages/posts/posts';
 import ProtectedRoute from './components/ProtectedRoute';
+import CreatePost from './pages/createpost/CreatePost';
 
 export default function App() {
   return (
@@ -16,6 +17,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <Posts />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/create-post"
+          element={
+            <ProtectedRoute>
+              <CreatePost />
             </ProtectedRoute>
           }
         />

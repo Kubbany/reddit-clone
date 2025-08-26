@@ -24,3 +24,13 @@ export const loginUser = async (data) => {
 };
 
 export const createPost = (data) => API.post("/posts", data);
+
+export const getPosts = async () => {
+  const res = await API.get("/posts");
+  return res.data;
+};
+
+export const votePost = async (postId, value) => {
+  const res = await API.post("/votes", { postId, value });
+  return res.data;
+};
