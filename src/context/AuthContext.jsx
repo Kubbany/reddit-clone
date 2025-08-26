@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-catch */
 import { createContext, useContext, useEffect, useState } from "react";
 import { loginUser } from "../services/api";
-
+import { jwtDecode } from "jwt-decode";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -9,9 +9,10 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+useEffect(() => {
     if (token) {
-      setUser({ token });
+      const decoded = jwtDecode(token);
+      setUser(decoded);
     }
   }, [token]);
 
@@ -21,7 +22,8 @@ export const AuthProvider = ({ children }) => {
       const res = await loginUser({ email, password });
       localStorage.setItem("token", res.token);
       setToken(res.token);
-      setUser({ token: res.token });
+     const decoded = jwtDecode(res.token);
+      setUser(decoded);
       return res;
     } catch (err) {
       throw err;
