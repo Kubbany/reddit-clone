@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "http://localhost:3000",
+  withCredentials: true, 
   headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
@@ -34,3 +35,8 @@ export const votePost = async (postId, value) => {
   const res = await API.post("/votes", { postId, value });
   return res.data;
 };
+
+export const createComment = (data) => API.post("/comments", data);
+
+export const getCommentsByPostId = (postId) =>
+  API.get(`/comments/post/${postId}`);

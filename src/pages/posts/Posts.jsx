@@ -43,7 +43,6 @@ export default function Posts() {
 
       {showCreateModal && (
         <div className="modal">
-          {/* here you can render your CreatePost component */}
           <button onClick={() => setShowCreateModal(false)}>Close</button>
         </div>
       )}
