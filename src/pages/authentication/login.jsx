@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
+import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,18 +11,18 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const { login } = useAuth();
+  const { login, loading } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
+
     try {
       await login(email, password);
-      navigate("/");
-    // eslint-disable-next-line no-unused-vars
-    } catch (error) {
-      setError("Invalid Email or Password");
+      navigate("/posts");
+    } catch (err) {
+      setError(err.response?.data?.message || "Invalid Email or Password");
     }
   };
 
@@ -33,14 +33,14 @@ export default function Login() {
 
         <p className="signup-text">
           Don't have an account?
-          <a href="/signup" className="signup-link">
+          <Link to="/signup" className="signup-link">
             Create an account
-          </a>
+          </Link>
         </p>
 
         <form onSubmit={handleSubmit}>
           <input
-            type="text"
+            type="email"
             placeholder="Email"
             className="login-input"
             value={email}
@@ -69,8 +69,8 @@ export default function Login() {
 
           {error && <p className="error-text">{error}</p>}
 
-          <button type="submit" className="login-button">
-            Log In
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? "Logging in..." : "Log In"}
           </button>
         </form>
       </div>

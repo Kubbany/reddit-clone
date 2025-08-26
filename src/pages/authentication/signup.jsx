@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
 import { registerUser } from "../../services/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./signup.css"; 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -16,6 +15,8 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -23,15 +24,18 @@ export default function SignUp() {
     setError(null);
 
     if (password !== confirmPassword) {
-      setError("Passwords Do Not Match!");
+      setError("Passwords do not match!");
       return;
     }
 
     try {
+      setLoading(true);
       const res = await registerUser({ name, email, password });
       navigate("/login");
     } catch (err) {
-      setError("Registration Failed. Try Again.");
+      setError(err.response?.data?.message || "Registration failed. Try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -39,6 +43,11 @@ export default function SignUp() {
     <div className="signup-container">
       <div className="signup-box">
         <h1>Sign Up</h1>
+
+        <div className="account-text">
+          <span>Already have an account?</span>
+          <Link to="/login">Join us with it</Link>
+        </div>
 
         <form onSubmit={handleSubmit}>
           <input
@@ -49,7 +58,7 @@ export default function SignUp() {
             onChange={(e) => setName(e.target.value)}
           />
           <input
-            type="text"
+            type="email"
             placeholder="Email"
             className="signup-input"
             value={email}
@@ -100,8 +109,8 @@ export default function SignUp() {
 
           {error && <p className="error-text">{error}</p>}
 
-          <button type="submit" className="signup-button">
-            Sign Up
+          <button type="submit" className="signup-button" disabled={loading}>
+            {loading ? "Signing up..." : "Sign Up"}
           </button>
         </form>
       </div>
