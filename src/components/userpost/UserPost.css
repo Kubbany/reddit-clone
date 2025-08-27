@@ -1,0 +1,119 @@
+.user-post-wrapper {
+  margin-bottom: 25px;
+}
+
+.user-post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.user-post-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.user-post-actions button:first-child {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.user-post-actions button:last-child {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  color: #f1f1f1;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: transparent;
+  color: #f1f1f1;
+  outline: none;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.dialog-actions button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.dialog-actions button:first-child {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.dialog-actions button:last-child {
+  background: #555;
+  color: #fff;
+}
+
+/* Feedback Toast */
+.feedback-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+.feedback-toast button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

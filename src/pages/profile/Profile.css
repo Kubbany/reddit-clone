@@ -1,0 +1,21 @@
+.user-posts-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.user-posts-container {
+  flex: 1;
+  padding: 20px;
+  color: #f1f1f1;
+  margin-left: 250px;
+}
+
+.user-posts-container h2 {
+  margin-bottom: 20px;
+}
+
+.no-posts {
+  text-align: center;
+  color: #aaa;
+  margin-top: 50px;
+}

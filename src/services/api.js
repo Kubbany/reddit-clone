@@ -40,3 +40,12 @@ export const createComment = (data) => API.post("/comments", data);
 
 export const getCommentsByPostId = (postId) =>
   API.get(`/comments/post/${postId}`);
+
+export const getMyPosts = async () => {
+  const res = await API.get("/posts/my-posts");
+  return res.data;
+};
+
+export const deletePost = (id) => API.delete(`/posts/${id}`);
+
+export const updatePost = (id, data) => API.put(`/posts/${id}`, data);
