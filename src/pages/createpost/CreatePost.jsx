@@ -21,9 +21,10 @@ export default function CreatePost() {
     try {
       setLoading(true);
       await createPost(formData);
-      navigate("/posts");
+      navigate("/posts", { state: { message: "Post created successfully!" } });
     } catch (err) {
       console.error("Error creating post:", err);
+      navigate("/posts", { state: { message: "Failed to create post" } });
     } finally {
       setLoading(false);
     }
@@ -58,7 +59,11 @@ export default function CreatePost() {
               onChange={(e) => setImage(e.target.files[0])}
               className="create-post-input"
             />
-            <button type="submit" disabled={loading} className="create-post-button">
+            <button
+              type="submit"
+              disabled={loading}
+              className="create-post-button"
+            >
               {loading ? "Submitting..." : "Submit"}
             </button>
           </form>
